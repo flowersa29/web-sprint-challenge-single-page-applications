@@ -2,28 +2,30 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import styled from 'styled-components'
 
-const navDiv = styled.div `
+const NavDiv = styled.div`
+position: fixed;
 width: 100%;
 background:red;
 display:flex;
 justify-content: flex-end;
-height:4rem;
+height:80px;
 align-items:center;
 a{
     text-decoration:none;
     margin-right:3%;
-    color:white;
+    color:black;
     font-size: 1.4rem;
+    font-weight:bold;
 }
 
 `
 
 const Navigation = () => {
     return (
-        <navDiv>
-          <Link to="/order-burger">Order</Link>
+        <NavDiv>
+          <Link to="/order">Order</Link>
           <Link to="/">Home</Link>  
-        </navDiv>
+        </NavDiv>
     )
 }
 
