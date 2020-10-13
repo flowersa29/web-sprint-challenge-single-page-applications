@@ -14,11 +14,7 @@ const addOrder = order => {
 
     setOrders([...orders, order])
 }
-const cancelOrder = index => {
-  const originalOrders = [...orders]
-  originalOrders.splice(index, 1)
-  setOrders(originalOrders)
-}
+
 
 
 
@@ -27,7 +23,7 @@ const cancelOrder = index => {
     <div className="App">
       <Navigation/>
       <Switch>
-        <Route path="/order" render={() => <Form orders={orders}  addOrder={addOrder} cancelOrder={cancelOrder}/>}/>
+        <Route path="/order" render={() => <Form orders={orders}  addOrder={addOrder} />}/>
 
         <Route exact path="/" render={() => <Home/>} />
 

@@ -3,11 +3,22 @@ import * as yup from "yup";
 import "../App.css"
 import axios from "axios"
 import Order from '../components/Order';
+import OrderCard from "./OrderCard"
+import styled from 'styled-components'
 
 const schema = yup.object().shape({
         name:yup.string().required("Please enter your name").min(2, 'That\'s not valid')  
 })
-
+const CoffeeDiv = styled.div`
+  width: 600px;
+  background: black;
+  color: white;
+  padding: 2%;
+  position: fixed;
+  margin: 4% 15% 15% 30%;
+  border-radius: 10px;
+  overflow: hidden;
+`;
 
 const Form = (props) =>{
     const [formState, setformState] = useState({
@@ -18,7 +29,7 @@ const Form = (props) =>{
             Large:false
         },
 
-        toppings:{
+        toppings: {
             cheese:false,
             sausage:false,
             pepperoni:false
@@ -74,21 +85,22 @@ const Form = (props) =>{
 
     return (
         <div className="form">
-            <form onSubmit={handleSubmit}>
-                <h1>Order your Burger</h1>  
-                <label>Name:
+            <CoffeeDiv>
+            <form onSubmit={handleSubmit} >
+                <h1>Order your Pizza</h1>  
+                <label style={{paddingRight:"10px"}}>Name:
                     <input name="name" type="text" value={formState.name} placeholder="Enter Name" onChange={handleChanges} data-cy=""/>
                 </label>
                 {errors.name.length > 0 && <p style={{color:"crimson"}}>Please enter your Name</p>}
 
                 <label>Pizza Size:
-                    <select id="type" name="type" defaultValue="small" onChange={handleChanges}>
+                    <select data-cy="type" name="type"   value={formState.type} onChange={handleChanges}>
                         <option data-cy="small" value="small">Small</option>
                         <option data-cy="medium" value="medium">Medium</option>
                         <option data-cy="large" value="large">Large</option>
                     </select>
                 </label>
-                <label>toppings
+                <label>toppings:
                     <label>
                     <input type="checkbox" name="cheese" data-cy="cheese" onChange={handleChanges} value=""/>
                     cheese
@@ -102,6 +114,7 @@ const Form = (props) =>{
                     pepperoni
                     </label>
                     <label>
+                    
                     <input type="checkbox" name="ExtraCheese" data-cy="ExtraCheese" onChange={handleChanges} value=""/>
                     ExtraCheese
                     </label>
@@ -111,8 +124,10 @@ const Form = (props) =>{
                 </label>
                 <button type="submit" disabled={isDisabled} data-cy="submit">Place your order</button>
             </form>
-            <div>
-                {props.orders.map((order, index)=> <Order order={order} key={index}/>)}
+            </CoffeeDiv>
+            <div className="order" style={{paddingTop:"400px"}}>
+                {props.orders.map((order, i)=> <div key={i}>{order.name} </div>)}
+                {/* {props.orders.map((order, i) => <OrderCard  key={i} order={order}/>)} */}
             </div>
         </div>
     )

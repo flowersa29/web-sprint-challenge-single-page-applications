@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import img from "../Images/pizza.jpg"
 import styled from "styled-components"
 import Burger from "../Images/Burger.jpg"
@@ -17,7 +17,7 @@ const HomeContainer = styled.div `
 
 const Home = props => {
     
-    
+  
     return (
         <HomeContainer style={{overflowY:"hidden"}}>
             
