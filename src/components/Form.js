@@ -24,12 +24,7 @@ const Form = (props) =>{
             pepperoni:false
 
         },
-        instructions:{
-
-
-
-
-        }
+        instructions:""
 
 
 
@@ -112,7 +107,7 @@ const Form = (props) =>{
                     </label>
                 </label>
                 <label>Special Instructions
-                    <textarea name="instructions"  value={formState.} data-cy="instructions" placeholder="Type Here..." onChange={handleChanges} />
+                    <textarea name="instructions"  value={formState.instructions} data-cy="instructions" placeholder="Type Here..." onChange={handleChanges} />
                 </label>
                 <button type="submit" disabled={isDisabled}>Place your order</button>
             </form>
