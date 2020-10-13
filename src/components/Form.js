@@ -109,7 +109,7 @@ const Form = (props) =>{
                 <label>Special Instructions
                     <textarea name="instructions"  value={formState.instructions} data-cy="instructions" placeholder="Type Here..." onChange={handleChanges} />
                 </label>
-                <button type="submit" disabled={isDisabled}>Place your order</button>
+                <button type="submit" disabled={isDisabled} data-cy="submit">Place your order</button>
             </form>
             <div>
                 {props.orders.map((order, index)=> <Order order={order} key={index}/>)}
