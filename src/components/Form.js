@@ -70,6 +70,7 @@ const Form = (props) =>{
             setformState({...formState, [e.target.name]: e.target.value})
         } if (e.target.name === "name") {
             validate(e)
+            
         }
     }
 
@@ -89,7 +90,7 @@ const Form = (props) =>{
             <form onSubmit={handleSubmit} >
                 <h1>Order your Pizza</h1>  
                 <label style={{paddingRight:"10px"}}>Name:
-                    <input name="name" type="text" value={formState.name} placeholder="Enter Name" onChange={handleChanges} data-cy=""/>
+                    <input name="name" type="text" value={formState.name} placeholder="Enter Name" onChange={handleChanges} data-cy="name"/>
                 </label>
                 {errors.name.length > 0 && <p style={{color:"crimson"}}>Please enter your Name</p>}
 

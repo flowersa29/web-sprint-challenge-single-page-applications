@@ -22,6 +22,7 @@ const addOrder = order => {
   return (
     <div className="App">
       <Navigation/>
+      <login />
       <Switch>
         <Route path="/order" render={() => <Form orders={orders}  addOrder={addOrder} />}/>
 
